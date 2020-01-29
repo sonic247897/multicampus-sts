@@ -1,0 +1,16 @@
+package exam.tiles;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class TilesIndexController {
+	@RequestMapping("/exam/index.do")
+	public String index() {
+		return "index"; //tiles설정 파일에 등록된 view의 이름
+	}
+	
+	public String mybatisView() {
+		return "menu/mybatis";
+	}
+}

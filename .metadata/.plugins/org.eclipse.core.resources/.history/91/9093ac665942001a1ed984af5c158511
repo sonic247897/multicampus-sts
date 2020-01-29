@@ -1,0 +1,27 @@
+package test;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
+
+public class TestController  {
+	
+	public ModelAndView test() throws Exception {
+		System.out.println("��Ʈ�ѷ� ��û �Ϸ�");
+		// ����������(model) ������ ����信 ���� ������ ��� �ִ� ������ ��ü
+		ModelAndView mav = new ModelAndView();
+		
+		// ���������� ����
+		// request.setAttribute("msg","������ ��Ʈ�ѷ����� �ѱ� ������") 
+		mav.addObject("msg","������ ��Ʈ�ѷ����� �ѱ� ������");
+		
+		// forward�� ���� ������ ���� - �⺻�� forward
+		mav.setViewName("test/result");
+		
+		return mav;
+	}
+
+}

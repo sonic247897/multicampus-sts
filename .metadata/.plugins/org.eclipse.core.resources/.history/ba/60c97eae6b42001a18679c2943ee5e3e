@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- 템플릿 등록  -->
+	<definition name="mainTemplate" 
+			template="/WEB-INF/template/mainLayout.jsp">
+		<!-- 화면 영역 이름 -->
+		<put-attribute name="top" value="/WEB-INF/template/top.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/menu/spring_jdbc.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/template/top.jsp"/>
+	</definition>
+</tiles-definitions>

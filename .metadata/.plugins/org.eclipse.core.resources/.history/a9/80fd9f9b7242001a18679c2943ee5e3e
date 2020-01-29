@@ -1,0 +1,10 @@
+package exam.tiles;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class TilesIndexController {
+	public String index() {
+		
+	}
+}

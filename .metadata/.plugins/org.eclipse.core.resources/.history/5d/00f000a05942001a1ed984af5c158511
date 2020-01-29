@@ -1,0 +1,22 @@
+package test;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
+@org.springframework.stereotype.Controller
+public class TestController  {
+	
+	public ModelAndView test() {
+		System.out.println("��Ʈ�ѷ� ��û �Ϸ�");
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("msg","������ ��Ʈ�ѷ����� �ѱ� ������");
+		mav.setViewName("test/result");
+		
+		return mav;
+	}
+
+}

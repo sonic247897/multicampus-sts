@@ -1,0 +1,12 @@
+package test;
+
+import org.springframework.stereotype.Controller;
+
+// 어노테이션을 쓰면 스펙을 명시할 필요x
+// 일반 빈: component, 비지니스 로직: service, DB(DAO): repository
+// 웹 Controller
+@Controller
+public class IndexController {
+	
+
+}

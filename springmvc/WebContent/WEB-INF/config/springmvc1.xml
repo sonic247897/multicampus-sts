@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- HandlerMapping을 따로 등록하지 않으면 기본으로 설정된 HandlerMapping이 
+		동작하고 기본으로 설정된 HandlerMapping객체는 <bean>의 name속성에서
+		path와 일치하는 빈을 찾아서 DispatcherServlet으로 리턴한다.	 -->
+	<!-- <bean name = "/test.do" class = "test.TestController"/> -->
+	<bean 
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<!-- properties객체=map의 하위(키,value) -->
+			<props>
+				<prop key="/index.do">index</prop>
+				<prop key="/test.do">test</prop>
+				<prop key="/search.do">search</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

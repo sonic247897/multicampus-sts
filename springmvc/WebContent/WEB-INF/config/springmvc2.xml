@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- handlerMapping이 이 정보를 보고 객체를 만든다.  -->
+	<!-- <bean name = "/test.do" class = "test.TestController"/>
+	<bean name = "/index.do" class = "test.IndexController"/>
+	<bean name = "/search.do" class = "member.SearchController"/> -->
+	
+	<bean name = "test" class = "test.TestController"/>
+	<bean name = "index" class = "test.IndexController"/>
+	<bean name = "search" class = "member.SearchController"/>
+	
+	<!-- 스프링이 제공하는 viewResolver 등록해서 중복되는 주소 지우기 -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+</beans>
