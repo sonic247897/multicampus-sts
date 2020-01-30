@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<img alt="" src="/firstPro/images/jang.jpg">
-	<img alt="" src="/firstPro/images/jang.jpg">
+	<img alt="" src="/firstPro/resources/images/jang.jpg">
+	<img alt="" src="/firstPro/resources/images/jang.jpg">
 </body>
 </html>

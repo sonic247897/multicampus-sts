@@ -3,4 +3,5 @@
   <module moduleId="org.eclipse.jst.jee.server:firstPro" serverId="Tomcat v9.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:springmvc" serverId="Tomcat v9.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:secondPro" serverId="Tomcat v9.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:erp" serverId="Tomcat v9.0 Server at localhost"/>
 </modules>

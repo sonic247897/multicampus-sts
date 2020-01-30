@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+       
+<!-- 스프링 설정파일이 모든 설정파일들을 읽고 파싱을 해서 한번에 설정을 정리하므로 -->
+<!-- 템플릿을 다시 등록할 필요 없이 extends로 사용할 수 있다. -->       
+<tiles-definitions>
+	<!-- board관련 작업을 하기 위해 필요한 뷰만 등록 -->
+	<definition name="menu/board" extends="mainTemplate">
+		<put-attribute name="menu" value="/WEB-INF/menu/board_menu.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/board/boardlist.jsp"/>
+	</definition>
+	
+	
+</tiles-definitions>	
+	

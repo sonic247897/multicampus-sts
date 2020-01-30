@@ -3,4 +3,5 @@
 <aop-project name="secondPro"/>
 <aop-project name="firstPro"/>
 <aop-project name="springmvc"/>
+<aop-project name="erp"/>
 </aop-reference-model>

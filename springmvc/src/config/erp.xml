@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	
+	<!-- 같은 계정이면 어떤 테이블이라도 한번만 사용하면 된다.  -->
+	
+	<!-- db연동 -->
+	<!-- 1. 커넥션을 관리하는 객체(드라이버매니저 방식) -->
+	<!-- 필드에서 사용X. 테스트용: 요청이 들어올 때마다 커넥션을 하나 만들어서 리턴해주는 방식 -->
+	<!-- 이 객체가 오라클에 접속할 수 있는 객체를 하나 만들어서 리턴해줌 -->
+	<!-- JdbcTemplate이라는 스프링이 제공해주는 기능을 이용 -->
+	<bean id="ds"
+	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+					value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url"
+			value="jdbc:oracle:thin:@127.0.0.1:1521:xe"/>
+		<property name="username" value="erp"/>
+		<property name="password" value="erp"/>
+	</bean>
+	
+	<!-- @di(setter) . 템플릿을 활용한 DAO를 만든다. -->
+	<!-- 2. db연동 기능을 제공하는 객체 (CLRUD를 할 수 있는 메소드를 제공)-->
+	<bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="ds"/> <!-- 커넥션 건네기 - preparedStatement이용 -->
+	</bean>
+	
+	<context:component-scan base-package="dept"/>
+	
+</beans>
