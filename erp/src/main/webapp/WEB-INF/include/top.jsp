@@ -65,7 +65,7 @@
 					<li class="active"><a href="#">Home</a></li>
 					<li><a href="/erp/menu/insa.do">업무관리</a></li>
 					<li><a href="#">자원관리</a></li>
-					<li><a href="/erp/menu/board.do">커뮤니티</a></li>
+					<li><a href="/erp/board/list.do">커뮤니티</a></li>
 					<li><a href="#">일정관리</a></li>
 					<li><a href="#">휴가관리</a></li>
 					<li><a href="#">결재</a></li>

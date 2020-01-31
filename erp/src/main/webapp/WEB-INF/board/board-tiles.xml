@@ -7,9 +7,13 @@
 <!-- 템플릿을 다시 등록할 필요 없이 extends로 사용할 수 있다. -->       
 <tiles-definitions>
 	<!-- board관련 작업을 하기 위해 필요한 뷰만 등록 -->
-	<definition name="menu/board" extends="mainTemplate">
+	<definition name="board/list" extends="mainTemplate">
 		<put-attribute name="menu" value="/WEB-INF/menu/board_menu.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/board/boardlist.jsp"/>
+	</definition>
+	<definition name="board/write" extends="mainTemplate">
+		<put-attribute name="menu" value="/WEB-INF/menu/board_menu.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/board/board_write.jsp"/>
 	</definition>
 	
 	

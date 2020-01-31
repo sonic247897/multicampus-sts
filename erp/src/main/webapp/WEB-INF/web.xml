@@ -22,7 +22,7 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet
 		</servlet-class>
 		<!-- 내가 지정한 위치의 설정파일 인식 -->
-		<!-- web.xml은 기본 설정파일, spring-config는 spring설정파일 -->
+		<!-- web.xml은 자바 웹 프로젝트 기본 설정파일, spring-config는 spring설정파일 -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/config/spring-config.xml</param-value>

@@ -149,7 +149,40 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 		
-      <Context docBase="C:\iot\work\stswork\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\iot\work\stswork\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\firstPro" path="/firstPro" reloadable="true" source="org.eclipse.jst.jee.server:firstPro"/><Context docBase="C:\iot\work\stswork\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\secondPro" path="/secondPro" reloadable="true" source="org.eclipse.jst.jee.server:secondPro"/><Context docBase="C:\iot\work\stswork\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\springmvc" path="/springmvc" reloadable="true" source="org.eclipse.jst.jee.server:springmvc"/><Context docBase="C:\iot\work\stswork\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\erp" path="/erp" reloadable="true" source="org.eclipse.jst.jee.server:erp"/></Host>
+      <Context docBase="C:\iot\work\stswork\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\iot\work\stswork\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\firstPro" path="/firstPro" reloadable="true" source="org.eclipse.jst.jee.server:firstPro"/><Context docBase="C:\iot\work\stswork\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\secondPro" path="/secondPro" reloadable="true" source="org.eclipse.jst.jee.server:secondPro"/><Context docBase="C:\iot\work\stswork\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\springmvc" path="/springmvc" reloadable="true" source="org.eclipse.jst.jee.server:springmvc">
+
+    <!-- Default set of monitored resources. If one of these changes, the    -->
+    <!-- web application will be reloaded.                                   -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>WEB-INF/tomcat-web.xml</WatchedResource>
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+
+    <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+    <!--
+    <Manager pathname="" />
+    -->
+    <!-- 자원이 여러개이므로 이름(name) 등록. 인증은 container에서 받음 -->
+    <!-- connection 최대 20개. 사용하고 있어도 10개까지는 idle하게 유지. 
+    	wait -1: 접속시간 무한대까지 -->
+    <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myspring" password="erp" type="javax.sql.DataSource" url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="erp"/>
+</Context><Context docBase="C:\iot\work\stswork\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\erp" path="/erp" reloadable="true" source="org.eclipse.jst.jee.server:erp">
+
+    <!-- Default set of monitored resources. If one of these changes, the    -->
+    <!-- web application will be reloaded.                                   -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>WEB-INF/tomcat-web.xml</WatchedResource>
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+
+    <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+    <!--
+    <Manager pathname="" />
+    -->
+    <!-- 자원이 여러개이므로 이름(name) 등록. 인증은 container에서 받음 -->
+    <!-- connection 최대 20개. 사용하고 있어도 10개까지는 idle하게 유지. 
+    	wait -1: 접속시간 무한대까지 -->
+ 
+    <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myspring" password="erp" type="javax.sql.DataSource" url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="erp"/>
+</Context></Host>
     </Engine>
   </Service>
 </Server>

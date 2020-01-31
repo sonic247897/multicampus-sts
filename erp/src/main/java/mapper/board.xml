@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="multi.erp.board">
+	<!-- spring-jdbc에서 rowmapper에 DTO 매핑해주는 작업을 mybatis에서는 자동으로 해준다. -->
+	<!-- BoardVO를 board라고 alias했으므로 -->
+	<select id="listall" resultType="board">
+		select * from board
+	</select>
+	<insert id="insert" parameterType="board">
+		<!-- '?'=>'#{VO이름명}' (name으로 매핑함)-->
+		insert into board values(board_seq.nextval, 'jang', #{title},#{content}, sysdate, #{category}, 0)
+	</insert>
+		
+
+</mapper> 
+ 
