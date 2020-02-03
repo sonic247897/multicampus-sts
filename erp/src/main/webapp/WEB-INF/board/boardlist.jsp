@@ -15,7 +15,29 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-
+	// 자바스크립트에서 자바에서 발생한 데이터를 사용 - EL(표현식 언어!)
+	// ${category} => request.getAttribute("category"); 직접 써도 됨
+	category="${category}"; // 컨트롤러 요청하고 response될 때 값을 받아서 셋팅
+	<%-- category="<%= request.getAttribute("category")%>"; --%>
+	$(document).ready(function() {
+		// 최초실행인 경우 category값이 없으니 처리
+		if(category == ""){
+			category = "all";
+		}
+		
+		// 2. 들어갔다 나올때 실행되는 코드(boardlist가 응답도 함)
+		// "selected", "selected"-선택한 것으로 바꾸기
+		$("#category").val(category).attr("selected", "selected");
+		
+		// 1. 들어올 때 코드(boardlist가 요청)
+		// 카테고리가 변할 때 = change [약식 - 동적 생성 컨텐츠 x]
+		$("#category").change(function() {
+			// jQuery객체 사용은 $로 받는다.
+			location.href="/erp/board/list.do?category="+encodeURI($(this).val());	
+			/* IE에서는 한글 카테고리를 주소에 넣었을 때 자동으로 인코딩 해주지 않기 때문에 404에러 뜸  */
+		});
+		
+	});
 </script>
 </head>
 <body>
@@ -26,6 +48,7 @@
 	<div style="padding-top: 30px">
 		<div class="col-md-3" style="padding-bottom: 10px">
 		    구분:
+		    <!-- 1. Submit버튼X - jQuery(자바스크립트 사용x) -->
 			<form >
 				<select name="category"  id="category">
 					<option value="all">전체게시물</option>
@@ -59,6 +82,7 @@
 			</tbody>
 		</table>
 	</div>
+	<!-- 2. Submit버튼  -->
 	<form action="/erp/board/search.do">
 		<select name="tag">
 			<option value="id">작성자</option>

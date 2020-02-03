@@ -8,11 +8,39 @@
 	<select id="listall" resultType="board">
 		select * from board
 	</select>
+	<!-- 조건이 있는 경우 대체로 String 사용 -->
+	<!-- 파라미터로 category라는 이름의 String이 들어옴 -->
+	<select id="categorySearch" resultType="board" parameterType="String">
+		select * from board where category=#{category}	
+	</select>
+	
 	<insert id="insert" parameterType="board">
 		<!-- '?'=>'#{VO이름명}' (name으로 매핑함)-->
 		insert into board values(board_seq.nextval, 'jang', #{title},#{content}, sysdate, #{category}, 0)
 	</insert>
+	
+	<!-- 동적sql -->
+	<select id="dynamicSearch" resultType="board" parameterType="Map">
+		select * from board
+		<where>
+			<!-- tag: dao에서 put할 때 준 이름 -->
+			<if test="tag=='title' and search != ''">
+				title like '%' || #{search} || '%'
+			</if>
+			<if test="tag=='id' and search != ''">
+				id like '%' || #{search} || '%'
+			</if>
+			<if test="tag=='content' and search != ''">
+				content like '%' || #{search} || '%'
+			</if>
+			<if test="tag=='write_date' and search != ''">
+				<!-- xml의 문자열 취급 문법 [CDATA section] -->
+				<![CDATA[
+				to_date(write_date) <= #{search} 
+				]]>
+			</if>
+		</where>
+	</select>	
 		
-
 </mapper> 
  

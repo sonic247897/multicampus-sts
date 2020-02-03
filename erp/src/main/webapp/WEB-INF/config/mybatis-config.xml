@@ -5,9 +5,11 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="multi.erp.board.BoardVO" alias="board"/>
+		<typeAlias type="multi.erp.emp.MemberVO" alias="emp"/>
 	</typeAliases>
 	<mappers>
 		<!-- src부터 인식 -->
 		<mapper resource="mapper/board.xml"/>
+		<mapper resource="mapper/emp.xml"/>
 	</mappers>
 </configuration>

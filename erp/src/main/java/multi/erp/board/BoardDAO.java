@@ -7,7 +7,7 @@ public interface BoardDAO {
 	List<BoardVO> boardList();
 	//게시글등록하기
 	int insert(BoardVO board);
-	List<BoardVO> searchList(String search);
+	List<BoardVO> categorySearch(String category);
 	List<BoardVO> searchList(String tag,String search);
 	List<BoardVO> pageList();
 	//게시글조회

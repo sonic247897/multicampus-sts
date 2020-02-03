@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <%
 	Cookie[] cookies = request.getCookies();
@@ -18,7 +18,7 @@
 %>
 </head>
 <body>
-	<form name="login_frm" action="/erp/login.do" method="post">
+	<form name="login_frm" action="/erp/emp/login.do" method="post">
 		<table cellpadding="0" cellspacing=5 width="815" bgcolor=#f3f3f3
 			border=0>
 			<tr>
@@ -58,6 +58,7 @@
 																				tabindex=1 style="width: 156;"
 																				 value="<%= id%>"></td>
 																			<td rowspan=3 style="padding-left: 10" valign=bottom>
+																			<!-- type이 image이면 submit버튼과 같은 역할을 한다! -->
 																			<input
 																				type='image' src="/erp/images/btn_login.gif"
 																				border="0" tabindex=3></td>
@@ -79,7 +80,7 @@
 																				style="display: inline"><label
 																					for="member_id_save"><input type="checkbox"
 																						name="member_id_save" id="member_id_save"
-																						value="T" <%if(id.length()!=0) %><%= "checked" %> />���̵�����</label> </span></td>
+																						value="T" <%if(id.length()!=0) %><%= "checked" %> />아이디저장</label> </span></td>
 																		</tr>
 																	</table>
 																</td>

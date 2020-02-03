@@ -14,19 +14,20 @@ public class BoardController {
 	BoardService service;
 	
 	@RequestMapping("/board/list.do")
-	public ModelAndView boardList() {
+	public ModelAndView boardList(String category) {
+		System.out.println("category=> "+category);
 		ModelAndView mav = new ModelAndView();
 		// 서블릿 작업 = 스프링 내부에서 작업하기 때문에 포멧만 바뀐것
 		// 1. 요청정보 추출
 		// 2. 비지니스메소드 호출
-		List<BoardVO> list = service.boardList();
+		List<BoardVO> list = service.boardList(category);
 		System.out.println(list);
 		
 		// 3. 데이터 공유 - jsp페이지에서 응답뷰 만들 때 사용
 		//		=>기본값: request에 저장
 		//		(기본이 request scope에 저장- request.setAttribute와 같음)
 		mav.addObject("boardlist", list);
-		
+		mav.addObject("category", category);
 		// 4. 뷰의 이름을 등록
 		mav.setViewName("board/list"); //tiles에 등록하는 이름과 일치해야 함
 		
@@ -51,9 +52,17 @@ public class BoardController {
 		int result = service.insert(board);
 		System.out.println("##################"+board);
 		// board.list로 리다이렉트
-		return "redirect:/board/list.do";
+		return "redirect:/board/list.do?category=all";
 	}
-	
+	@RequestMapping(value="/board/search.do")
+	public ModelAndView search(String tag, String search) {
+		ModelAndView mav = new ModelAndView();
+		// searchList와 뷰가 바뀌지 않으므로 위에서 쓰던거 그대로 사용하고 맞춰준다.
+		List<BoardVO> list = service.searchList(tag, search);
+		mav.addObject("boardlist", list);
+		mav.setViewName("board/list");
+		return mav;
+	}
 	
 	
 }
