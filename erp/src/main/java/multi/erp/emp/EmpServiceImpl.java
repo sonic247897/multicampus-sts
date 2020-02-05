@@ -33,8 +33,7 @@ public class EmpServiceImpl implements EmpService {
 
 	@Override
 	public boolean idCheck(String id) {
-		// TODO Auto-generated method stub
-		return false;
+		return dao.idCheck(id);
 	}
 
 	@Override

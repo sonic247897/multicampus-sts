@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -47,7 +48,7 @@ public class EmpController {
 			HttpSession ses = request.getSession();
 			// 2. 세션에 데이터 공유
 			ses.setAttribute("user", user);
-			viewName = "index";
+			viewName = "login/ok";
 		}else {
 			//로그인 실패
 			viewName = "login";
@@ -65,6 +66,29 @@ public class EmpController {
 			session.invalidate();
 		}
 		return "redirect:/index.do";
+	}
+	
+	@RequestMapping("/emp/insertView.do")
+	public String insertView() {
+		// main-tiles.xml의 definition에 정의된 뷰 이름
+		return "emp/insert";
+	}
+	// produces 속성: ajax요청 후 클라이언트로 전송할 데이터의 타입을 정의
+	//				application/text는 Ajax요청 후 클라이언트로 보내는
+	//				응답메시지의 타입이 text라는 뜻
+	@RequestMapping(value="/emp/idCheck.do", 
+			method=RequestMethod.GET,
+			produces="application/text; charset=utf-8") //마임타입(=응답형식):텍스트
+	// text를 보낼 때는 아래와 같이 명시
+	public @ResponseBody String idCheck(String id) {
+		boolean state = service.idCheck(id);
+		String result = "";
+		if(state) { //이미 사용자가 입력한 아이디가  db에 저장되어 있다는 의미
+			result = "사용 불가능한 아이디";
+		}else {
+			result = "사용가능한 아이디";
+		}
+		return result;
 	}
 	
 }

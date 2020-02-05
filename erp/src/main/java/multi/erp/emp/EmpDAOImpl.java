@@ -62,8 +62,12 @@ public class EmpDAOImpl implements EmpDAO {
 
 	@Override
 	public boolean idCheck(String id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean result = false;
+		MemberVO user=  sqlSession.selectOne("multi.erp.emp.idcheck",id);
+		if(user!=null) {
+			result = true;
+		}
+		return result;
 	}
 
 	@Override

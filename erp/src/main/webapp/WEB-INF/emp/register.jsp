@@ -8,11 +8,34 @@
 <meta charset="UTF-8">
 	<title>Insert title here</title>
 	<script type="text/javascript">
-	
+		$(document).ready(function() {
+			/* 동적컨텐츠에 이벤트 붙이기-on */
+			$("#id").on("keyup",function(){
+				/* <<자바스크립트에서 동기방식으로 요청하기>>
+					: 주소표시줄에 쓰고 엔터 친것과 같은 결과 반환(일반 요청 방식)
+				location.href = "/erp/emp/idCheck.do?id="+$("#id").val(); */
+				
+				// <<jQuery에서 Ajax로 요청하기>> - get방식
+				// url => 요청 path
+				// data => 파라미터: json형식
+				// 		*json형식 {"name":"value";"name":"value";...}
+				// success함수: ajax요청해서 성공적으로 데이터를 받아왔을 때 처리할 내용을 함수로 표현
+				// dataType: ajax요청 후 응답받을 데이터의 형식
+				$.get("/erp/emp/idCheck.do", // RequestMapping에 걸어준 것
+						{"id":$("#id").val()}, 
+						function(data) { //응답 데이터
+							//alert(data);
+							// ajax로 요청해서 응답받은 데이터를 <span>태그 내부에 출력
+							$("#checkVal").text(data);
+						},
+						"text")
+			});
+		});
 	</script>
  </head>
 	
 <body>
+	<%-- <%= request.getAttribute("info") %> --%>
 	<div class="container-fluid">
 			
 			<form class="form-horizontal" 
@@ -63,7 +86,7 @@
 						<div class="col-sm-3">
 							<input type="text" id="id" name="id"
 								placeholder="사번" class="form-control" 
-								minlength="4"  >
+								minlength="4" >
 							
 						</div>
 						<span id="checkVal" style="color: red;"></span>

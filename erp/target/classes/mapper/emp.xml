@@ -12,4 +12,13 @@
 		and d.job_category = j.job_id
 		and id=#{id} and pass=#{pass}
 	</select>
+	
+	<select id="idcheck" resultType="emp" parameterType="String" >
+		select * from member where id=#{id}
+	</select>
+	<!-- <insert id="insert" parameterType="emp">
+		insert into member	values(#{id},#{pass},#{name},#{ssn},#{birthday},#{marry},
+		#{gender},null,null,null,sysdate,null,#{deptno},null,#{zipcode},#{addr},#{detailaddr},
+		#{phonehome},#{phoneco},#{phonecell},#{email},#{profile_photo},0,'N',0,null)
+	</insert> -->
 </mapper>
