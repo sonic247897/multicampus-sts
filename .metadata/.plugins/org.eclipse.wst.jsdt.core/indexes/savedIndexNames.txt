@@ -1,18 +1,10 @@
 INDEX VERSION 1.4+C:\iot\work\stswork\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-554838337.index
-2222270616.index
-3016738803.index
-3930063151.index
-3343383098.index
-623852720.index
-4217470067.index
-1844502940.index
+485642199.index
+706313353.index
 3437910149.index
 2536954362.index
-485642199.index
-4201214003.index
-2744061061.index
-706313353.index
-3401076437.index
+3930063151.index
 1820677373.index
-1933674034.index
+3401076437.index
+2222270616.index
+2744061061.index
